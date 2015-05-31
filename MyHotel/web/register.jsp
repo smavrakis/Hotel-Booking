@@ -1,7 +1,7 @@
 <%-- 
     Document   : register
     Created on : May 31, 2015, 7:10:10 PM
-    Author     : Stavros
+    Author     : Stavros,Harry,Labros
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
