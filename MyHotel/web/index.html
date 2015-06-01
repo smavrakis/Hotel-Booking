@@ -11,8 +11,20 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
+        <form method="POST" action="j_security_check">
+            Username: <input type="text" name="j_username" />
+            Password: <input type="password" name="j_password" />
+            <br />
+            <input type="submit" value="Login" />
+            <input type="reset" value="Reset" />
+        </form>
+        <br>
         <form action="signup.jsp">
-            Don't have an account yet? <input type="submit" value="Sign up">
+            Don't have an account yet? <input type="submit" value="Sign up"> 
+        </form>
+        <br>
+        <form action="reservation.jsp">
+            Make an online reservation: <input type="submit" value="Book">
         </form>
     </body>
 </html>

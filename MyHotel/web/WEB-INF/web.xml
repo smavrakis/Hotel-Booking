@@ -4,13 +4,47 @@
         <servlet-name>registerServlet</servlet-name>
         <servlet-class>servlets.registerServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>loginServlet</servlet-name>
+        <servlet-class>servlets.loginServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>registerServlet</servlet-name>
         <url-pattern>/registerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>loginServlet</servlet-name>
+        <url-pattern>/loginServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    
+    <security-constraint>    
+        <web-resource-collection>
+            <web-resource-name>Users allowed</web-resource-name>
+            <description></description>
+            <url-pattern>/reservation.jsp</url-pattern>            
+        </web-resource-collection>
+        <auth-constraint>
+            <description/>
+            <role-name>users</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <transport-guarantee>NONE</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <realm-name>JDBCRealm</realm-name>
+        <form-login-config>
+            <form-login-page>/index.html</form-login-page>
+            <form-error-page>/loginError.jsp</form-error-page>
+        </form-login-config>
+    </login-config>
 </web-app>
+
+    

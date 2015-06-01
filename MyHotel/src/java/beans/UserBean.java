@@ -5,7 +5,9 @@
  */
 package beans;
 
+import entities.UserGroups;
 import entities.Users;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.*;
 
@@ -25,8 +27,26 @@ public class UserBean {
         user.setLastName(lastName);
         user.setEmailAddress(emailAddress);
         user.setUsername(username);
-        user.setPassword(password);
-        
+        String sha256hex = org.apache.commons.codec.digest.DigestUtils.sha256Hex(password);
+        user.setPassword(sha256hex);        
         em.persist(user);
+        
+        UserGroups group = new UserGroups();
+        group.setGroupName("users");
+        group.setUsername(username);
+        em.persist(group);
     }
+    
+    /*public boolean userExists(String username, String password){
+        Query query = em.createNamedQuery("Users.findByUsernameAndPassword");
+        query.setParameter("username", username);
+        query.setParameter("password", password);
+        List list = query.getResultList();
+        
+        if (!list.isEmpty()){
+            return true;
+        }
+        
+        return false;               
+    }*/
 }
