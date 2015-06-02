@@ -32,14 +32,19 @@
         <c:choose>
             <c:when test="${username != null}">
                 Logged in as:  <%= session.getAttribute("username") %>
-                <form action="manageAccount.jsp">
+                <form action="getUserInfoServlet">
                     <input type="submit" value="Manage Account">
                 </form>
                 <form action="logoutServlet">
                     <input type="submit" value="Log Out">
                 </form>
                 <br>
-                <form action="index.html" method="post">
+                <form action="index.jsp" method="post">
+                    Type of room:<br>
+                    <input type="radio" name="room" value="1">1<br>
+                    <input type="radio" name="room" value="2">2<br>
+                    <input type="radio" name="room" value="3">3<br>
+                    <input type="radio" name="room" value="4">4<br>
                     Arrival: <input type="date" name="arrivDay" max="2016-06-30"><br>
                     Departure: <input type="date" name="departDay" max="2016-07-31">
                     <input type="submit" value="Book">            

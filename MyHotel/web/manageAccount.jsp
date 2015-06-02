@@ -36,6 +36,13 @@
                     <input type="submit" value="Log Out">
                 </form>
                 <br>
+                Make any changes to your info and press the submit button:
+                <form action="changeInfoServlet" method="post">
+                    First Name: <input type="text" name="firstName" value= <%= session.getAttribute("firstName") %> > <br>
+                    Last Name: <input type="text" name="lastName" value= <%= session.getAttribute("lastName") %> > <br>
+                    Email address: <input type="text" name="emailAddress" value= <%= session.getAttribute("email") %> > <br>            
+                    <input type="submit" value="Submit">            
+                </form>
             </c:when>
         </c:choose>
         

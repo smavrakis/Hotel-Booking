@@ -16,6 +16,14 @@
         <servlet-name>checkIfLoggedIn</servlet-name>
         <servlet-class>servlets.checkIfLoggedIn</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>getUserInfoServlet</servlet-name>
+        <servlet-class>servlets.getUserInfoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>changeInfoServlet</servlet-name>
+        <servlet-class>servlets.changeInfoServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>registerServlet</servlet-name>
         <url-pattern>/registerServlet</url-pattern>
@@ -31,6 +39,14 @@
     <servlet-mapping>
         <servlet-name>checkIfLoggedIn</servlet-name>
         <url-pattern>/checkIfLoggedIn</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>getUserInfoServlet</servlet-name>
+        <url-pattern>/getUserInfoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>changeInfoServlet</servlet-name>
+        <url-pattern>/changeInfoServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

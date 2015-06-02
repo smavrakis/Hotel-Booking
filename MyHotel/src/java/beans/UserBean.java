@@ -7,6 +7,7 @@ package beans;
 
 import entities.UserGroups;
 import entities.Users;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.*;
 
@@ -34,5 +35,44 @@ public class UserBean {
         group.setGroupName("users");
         group.setUsername(username);
         em.persist(group);
+    }
+    
+    public List getID(String username){
+        Query query = em.createNamedQuery("Users.findID");
+        query.setParameter("username", username);
+        List results = query.getResultList();
+        return results;
+    }
+    
+    public String getFirstName(String username){        
+        List results = getID(username);
+        int id = (int)results.get(0);
+        Users user = em.find(Users.class, id);
+        return user.getFirstName();
+    }
+    
+    public String getLastName(String username){
+        List results = getID(username);
+        int id = (int)results.get(0);
+        Users user = em.find(Users.class, id);
+        return user.getLastName();
+    }
+    
+    public String getEmail(String username){
+        List results = getID(username);
+        int id = (int)results.get(0);
+        Users user = em.find(Users.class, id);
+        return user.getEmailAddress();
+    }
+    
+    public void updateInfo(String username, String firstName, String lastName, String email){
+        List results = getID(username);
+        int id = (int)results.get(0);
+        Users user = em.find(Users.class, id);        
+        
+        user.setFirstName(firstName);
+        user.setLastName(lastName);
+        user.setEmailAddress(email);        
+        em.merge(user);
     }
 }
