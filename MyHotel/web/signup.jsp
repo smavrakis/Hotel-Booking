@@ -22,5 +22,9 @@
             Password : <input type="password" name="password"> <br>
             <input type="submit" value="Register">            
         </form>
+        <br>
+        <form action="index.jsp">
+            <input type="submit" value="Home">
+        </form>
     </body>
 </html>

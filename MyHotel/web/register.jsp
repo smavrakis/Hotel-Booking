@@ -13,8 +13,8 @@
     </head>
     <body>
         <h1>You have successfully signed up!</h1>
-        <form action="index.html">
-            You can now log in from the main page: <input type="submit" value="Home">
+        <form action="login.jsp">
+            You can now log in: <input type="submit" value="Log in">
         </form>
     </body>
 </html>

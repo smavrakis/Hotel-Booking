@@ -1,6 +1,6 @@
 <%-- 
-    Document   : reservation
-    Created on : Jun 1, 2015, 6:19:56 PM
+    Document   : index
+    Created on : Jun 2, 2015, 5:56:06 PM
     Author     : Stavros
 --%>
 
@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Reservation</title>
+        <title>Home</title>
     </head>
     <body>
         <%
@@ -23,7 +23,7 @@
         <c:choose>
             <c:when test="${flag != 'true'}">
                 <%
-                    request.setAttribute("url", "/reservation.jsp" );
+                    request.setAttribute("url", "/index.jsp" );
                 %>
                 <jsp:forward page="/checkIfLoggedIn" />
             </c:when>
@@ -38,15 +38,9 @@
                 <br>
             </c:when>
         </c:choose>
-                
-        <form action="index.html" method="post">
-            Arrival: <input type="date" name="arrivDay" max="2016-06-30"><br>
-            Departure: <input type="date" name="departDay" max="2016-07-31">
-            <input type="submit" value="Book">            
+        
+        <form action="reservation.jsp">
+            <input type="submit" value="Book it!">
         </form>
-        <br>
-        <form action="index.jsp">
-            <input type="submit" value="Home">
-        </form>        
     </body>
 </html>

@@ -6,7 +6,7 @@
 package servlets;
 
 import java.io.IOException;
-import static java.lang.System.out;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Stavros
  */
-public class logoutServlet extends HttpServlet {
+public class checkIfLoggedIn extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,17 +30,17 @@ public class logoutServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();        
+        String url = (String)request.getAttribute("url");
+        String username = request.getRemoteUser();
         
-        try{
-            request.logout();
-            HttpSession session = request.getSession();
-            session.invalidate();
-            response.sendRedirect("index.jsp");
-            return;
-        }catch (ServletException e){
-            e.printStackTrace();
-            out.println("Logout Failed with a ServletException.." + e.getMessage());
+        if (username != null){
+            session.setAttribute("username", username);            
         }
+        request.setAttribute("flag", "true");
+        
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
+        dispatcher.forward(request, response);        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

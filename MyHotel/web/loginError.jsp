@@ -13,8 +13,8 @@
     </head>
     <body>
         <h1>Wrong username or password!</h1>
-        <form action="index.html">
-            <input type="submit" value="Return">
+        <form action="index.jsp">
+            <input type="submit" value="Home">
         </form>
     </body>
 </html>

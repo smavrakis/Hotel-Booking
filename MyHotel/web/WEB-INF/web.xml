@@ -12,6 +12,10 @@
         <servlet-name>logoutServlet</servlet-name>
         <servlet-class>servlets.logoutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>checkIfLoggedIn</servlet-name>
+        <servlet-class>servlets.checkIfLoggedIn</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>registerServlet</servlet-name>
         <url-pattern>/registerServlet</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>logoutServlet</servlet-name>
         <url-pattern>/logoutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>checkIfLoggedIn</servlet-name>
+        <url-pattern>/checkIfLoggedIn</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -47,8 +55,11 @@
         <auth-method>FORM</auth-method>
         <realm-name>JDBCRealm</realm-name>
         <form-login-config>
-            <form-login-page>/index.html</form-login-page>
+            <form-login-page>/login.jsp</form-login-page>
             <form-error-page>/loginError.jsp</form-error-page>
         </form-login-config>
     </login-config>
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
 </web-app>
