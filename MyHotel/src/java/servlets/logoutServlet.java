@@ -5,9 +5,9 @@
  */
 package servlets;
 
-import beans.UserBean;
 import java.io.IOException;
-import javax.ejb.EJB;
+import java.io.PrintWriter;
+import static java.lang.System.out;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,8 +19,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author Stavros
  */
-public class loginServlet extends HttpServlet {    
-    
+public class logoutServlet extends HttpServlet {
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -33,19 +33,15 @@ public class loginServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        
         try{
-            request.login(username, password);
-            HttpSession session = request.getSession();
-            session.setAttribute("username", request.getRemoteUser());
-            String url = "/welcome.jsp";
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
-            dispatcher.forward(request, response);
+            request.logout();
+            //HttpSession session = request.getSession();
+            //session.invalidate();
+            response.sendRedirect("index.html");
+            return;
         }catch (ServletException e){
             e.printStackTrace();
-            response.sendRedirect("loginError.jsp");
+            out.println("Logout Failed with a ServletException.." + e.getMessage());
         }
     }
 

@@ -19,12 +19,24 @@ and open the template in the editor.
             <input type="reset" value="Reset" />
         </form>
         <br>
+        <form method="POST" action="loginServlet">
+            Username: <input type="text" name="username" />
+            Password: <input type="password" name="password" />
+            <br />
+            <input type="submit" value="Login" />
+            <input type="reset" value="Reset" />
+        </form>
+        <br>
         <form action="signup.jsp">
             Don't have an account yet? <input type="submit" value="Sign up"> 
         </form>
         <br>
+        <form action="logoutServlet">
+            <input type="submit" value="Log Out">
+        </form>
+        <br>
         <form action="reservation.jsp">
-            Make an online reservation: <input type="submit" value="Book">
+            <input type="submit" value="Book it!">
         </form>
     </body>
 </html>
