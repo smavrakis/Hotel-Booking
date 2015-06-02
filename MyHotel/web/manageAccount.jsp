@@ -1,6 +1,6 @@
 <%-- 
-    Document   : reservation
-    Created on : Jun 1, 2015, 6:19:56 PM
+    Document   : manageAccount
+    Created on : Jun 2, 2015, 7:28:18 PM
     Author     : Stavros
 --%>
 
@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Reservation</title>
+        <title>Manage Account</title>
     </head>
     <body>
         <%
@@ -23,7 +23,7 @@
         <c:choose>
             <c:when test="${flag != 'true'}">
                 <%
-                    request.setAttribute("url", "/reservation.jsp" );
+                    request.setAttribute("url", "/manageAccount.jsp" );
                 %>
                 <jsp:forward page="/checkIfLoggedIn" />
             </c:when>
@@ -32,24 +32,15 @@
         <c:choose>
             <c:when test="${username != null}">
                 Logged in as:  <%= session.getAttribute("username") %>
-                <form action="manageAccount.jsp">
-                    <input type="submit" value="Manage Account">
-                </form>
                 <form action="logoutServlet">
                     <input type="submit" value="Log Out">
                 </form>
                 <br>
-                <form action="index.html" method="post">
-                    Arrival: <input type="date" name="arrivDay" max="2016-06-30"><br>
-                    Departure: <input type="date" name="departDay" max="2016-07-31">
-                    <input type="submit" value="Book">            
-                </form>
-                <br>
             </c:when>
-        </c:choose>                
+        </c:choose>
         
         <form action="index.jsp">
             <input type="submit" value="Home">
-        </form>        
+        </form>
     </body>
 </html>

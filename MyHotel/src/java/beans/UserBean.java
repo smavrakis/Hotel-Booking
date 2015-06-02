@@ -7,7 +7,6 @@ package beans;
 
 import entities.UserGroups;
 import entities.Users;
-import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.*;
 
@@ -36,17 +35,4 @@ public class UserBean {
         group.setUsername(username);
         em.persist(group);
     }
-    
-    /*public boolean userExists(String username, String password){
-        Query query = em.createNamedQuery("Users.findByUsernameAndPassword");
-        query.setParameter("username", username);
-        query.setParameter("password", password);
-        List list = query.getResultList();
-        
-        if (!list.isEmpty()){
-            return true;
-        }
-        
-        return false;               
-    }*/
 }

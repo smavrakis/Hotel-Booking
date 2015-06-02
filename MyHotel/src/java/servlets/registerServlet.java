@@ -8,7 +8,6 @@ package servlets;
 import beans.UserBean;
 import java.io.IOException;
 import javax.ejb.EJB;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -43,9 +42,8 @@ public class registerServlet extends HttpServlet {
         
         user.register(firstName, lastName, emailAddress, username, password);
         
-        String url = "/register.jsp";
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
-        dispatcher.forward(request, response);        
+        String url = "register.jsp";
+        response.sendRedirect(url);        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

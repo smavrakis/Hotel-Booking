@@ -32,6 +32,9 @@
         <c:choose>
             <c:when test="${username != null}">
                 Logged in as:  <%= session.getAttribute("username") %>
+                <form action="manageAccount.jsp">
+                    <input type="submit" value="Manage Account">
+                </form>
                 <form action="logoutServlet">
                     <input type="submit" value="Log Out">
                 </form>

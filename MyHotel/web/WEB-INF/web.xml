@@ -42,6 +42,7 @@
             <web-resource-name>Users allowed</web-resource-name>
             <description/>
             <url-pattern>/reservation.jsp</url-pattern>
+            <url-pattern>/manageAccount.jsp</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <description/>
