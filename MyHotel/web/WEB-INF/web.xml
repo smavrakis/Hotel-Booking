@@ -16,6 +16,10 @@
         <servlet-name>changeInfoServlet</servlet-name>
         <servlet-class>servlets.changeInfoServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>makeReservationServlet</servlet-name>
+        <servlet-class>servlets.makeReservationServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>registerServlet</servlet-name>
         <url-pattern>/registerServlet</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>changeInfoServlet</servlet-name>
         <url-pattern>/changeInfoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>makeReservationServlet</servlet-name>
+        <url-pattern>/makeReservationServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

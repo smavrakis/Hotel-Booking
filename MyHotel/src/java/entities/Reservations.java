@@ -18,6 +18,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -43,11 +44,16 @@ public class Reservations implements Serializable {
     @Column(name = "RoomNumber")
     private Integer roomNumber;
     @Column(name = "From")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date from;
+    //@Temporal(TemporalType.DATE)
+    //@Temporal(TemporalType.TIMESTAMP)
+    private java.sql.Date from;
     @Column(name = "To")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date to;
+    //@Temporal(TemporalType.DATE)
+    //@Temporal(TemporalType.TIMESTAMP)
+    private java.sql.Date to;
+    @Size(max = 50)
+    @Column(name = "Username")
+    private String username;
 
     public Reservations() {
     }
@@ -72,20 +78,28 @@ public class Reservations implements Serializable {
         this.roomNumber = roomNumber;
     }
 
-    public Date getFrom() {
+    public java.sql.Date getFrom() {
         return from;
     }
 
-    public void setFrom(Date from) {
+    public void setFrom(java.sql.Date from) {
         this.from = from;
     }
 
-    public Date getTo() {
+    public java.sql.Date getTo() {
         return to;
     }
 
-    public void setTo(Date to) {
+    public void setTo(java.sql.Date to) {
         this.to = to;
+    }
+    
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     @Override
