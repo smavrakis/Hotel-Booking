@@ -14,7 +14,9 @@
     </head>
     <body>
         <%
-            String username = request.getRemoteUser();            
+            String username = request.getRemoteUser();
+            String updateError = (String)session.getAttribute("updateError");            
+            pageContext.setAttribute("updateError",updateError);
             pageContext.setAttribute("username",username);
         %>
         
@@ -32,6 +34,13 @@
                     Email address: <input type="text" name="emailAddress" value= <%= session.getAttribute("email") %> > <br>            
                     <input type="submit" value="Submit">            
                 </form>
+                <br>
+                <c:choose>
+                    <c:when test="${updateError != null}">
+                        <p>Please don't leave any blank fields</p>
+                    </c:when>
+                </c:choose>
+                <br>
             </c:when>
         </c:choose>
         

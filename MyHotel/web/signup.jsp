@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,6 +13,11 @@
         <title>Signup</title>
     </head>
     <body>
+        <%
+            String registerError = (String)session.getAttribute("registerError");            
+            pageContext.setAttribute("registerError",registerError);
+        %>
+        
         <h1>Please fill out the following fields</h1>
         
         <form action="registerServlet" method="post">
@@ -22,6 +28,12 @@
             Password : <input type="password" name="password"> <br>
             <input type="submit" value="Register">            
         </form>
+        <br>
+        <c:choose>
+            <c:when test="${registerError != null}">
+                <p>Please fill out all the fields</p>
+            </c:when>
+        </c:choose>
         <br>
         <form action="index.jsp">
             <input type="submit" value="Home">

@@ -6,7 +6,6 @@
 package servlets;
 
 import java.io.IOException;
-import static java.lang.System.out;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -35,11 +34,11 @@ public class logoutServlet extends HttpServlet {
             request.logout();
             HttpSession session = request.getSession();
             session.invalidate();
-            response.sendRedirect("index.jsp");
-            return;
+            response.sendRedirect("index.jsp");            
         }catch (ServletException e){
             e.printStackTrace();
-            out.println("Logout Failed with a ServletException.." + e.getMessage());
+            String url = "genericError.jsp";
+            response.sendRedirect(url);
         }
     }
 

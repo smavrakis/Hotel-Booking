@@ -6,7 +6,6 @@
 package entities;
 
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,8 +15,6 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -33,6 +30,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Reservations.findByReservationID", query = "SELECT r FROM Reservations r WHERE r.reservationID = :reservationID"),
     @NamedQuery(name = "Reservations.findByRoomNumber", query = "SELECT r FROM Reservations r WHERE r.roomNumber = :roomNumber"),
     @NamedQuery(name = "Reservations.findByFrom", query = "SELECT r FROM Reservations r WHERE r.from = :from"),
+    @NamedQuery(name = "Reservations.checkAvailability", query = "SELECT r FROM Reservations r WHERE r.roomNumber = :roomNumber"
+            + " AND ((r.from >= :from AND r.from <= :to) OR (r.to >= :from AND r.to <= :to))"),
     @NamedQuery(name = "Reservations.findByTo", query = "SELECT r FROM Reservations r WHERE r.to = :to")})
 public class Reservations implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -43,13 +42,9 @@ public class Reservations implements Serializable {
     private Integer reservationID;
     @Column(name = "RoomNumber")
     private Integer roomNumber;
-    @Column(name = "From")
-    //@Temporal(TemporalType.DATE)
-    //@Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "FromDate")   
     private java.sql.Date from;
-    @Column(name = "To")
-    //@Temporal(TemporalType.DATE)
-    //@Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "ToDate")    
     private java.sql.Date to;
     @Size(max = 50)
     @Column(name = "Username")

@@ -9,12 +9,12 @@ import beans.ReservationBean;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -37,21 +37,41 @@ public class makeReservationServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        //DateFormat format2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        HttpSession session = request.getSession();
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd");        
         
         String username = request.getRemoteUser();
-        Integer roomNumber = Integer.parseInt(request.getParameter("roomNumber"));
         String from_temp = request.getParameter("from");
         String to_temp = request.getParameter("to");
         
-        try{
-            //Date from = format.parse(from_temp);
-            //Date to = format.parse(to_temp);
-            //System.out.println(from);
-            //System.out.println(to);
+        if (request.getParameter("roomNumber") == null || from_temp.equals("") || to_temp.equals("")){
+            session.setAttribute("roomError", "true");            
+            String url = "reservation.jsp";
+            response.sendRedirect(url);
+            return;
+        }
+        
+        if (session.getAttribute("roomError") != null){
+            session.removeAttribute("roomError");
+        }       
+                
+        Integer roomNumber = Integer.parseInt(request.getParameter("roomNumber"));        
+        
+        try{            
             java.sql.Date from = new java.sql.Date(format.parse(from_temp).getTime());
-            java.sql.Date to = new java.sql.Date(format.parse(to_temp).getTime());            
+            java.sql.Date to = new java.sql.Date(format.parse(to_temp).getTime());
+            
+            if (!reservation.isAvailable(from, to, roomNumber)){
+                session.setAttribute("reserveError", "true");            
+                String url = "reservation.jsp";
+                response.sendRedirect(url);
+                return;
+            }
+            
+            if (session.getAttribute("reserveError") != null){
+                session.removeAttribute("reserveError");
+            }
+            
             reservation.makeReservation(username, roomNumber, from, to);
             String url = "reservationSuccessful.jsp";
             response.sendRedirect(url);

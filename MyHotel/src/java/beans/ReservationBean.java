@@ -6,10 +6,11 @@
 package beans;
 
 import entities.Reservations;
-import java.util.Date;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -29,5 +30,21 @@ public class ReservationBean {
         reservation.setTo(to);
         
         em.persist(reservation);
+    }
+    
+    public boolean isAvailable(java.sql.Date from, java.sql.Date to, Integer roomNumber){
+        //java.util.Date fromDate = new java.util.Date(from.getTime());
+        //java.util.Date toDate = new java.util.Date(to.getTime());
+        Query query = em.createNamedQuery("Reservations.checkAvailability");
+        query.setParameter("roomNumber", roomNumber);
+        query.setParameter("from", from);
+        query.setParameter("to", to);
+        List results = query.getResultList();
+        
+        if (results.isEmpty()){
+            return true;
+        }else{
+            return false;
+        }        
     }
 }
