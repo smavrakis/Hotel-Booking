@@ -28,11 +28,14 @@
                     <input type="submit" value="Log Out">
                 </form>
                 <br>
+                <form action="getReservationServlet">
+                    <input type="submit" value="Show my reservation">
+                </form>
             </c:when>
         </c:choose>
         
         <form action="reservation.jsp">
             <input type="submit" value="Book it!">
-        </form>
+        </form>        
     </body>
 </html>

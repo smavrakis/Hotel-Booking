@@ -26,6 +26,9 @@
                 <form action="logoutServlet">
                     <input type="submit" value="Log Out">
                 </form>
+                <form action="getReservationServlet">
+                    <input type="submit" value="Show my reservation">
+                </form>
                 <br>
                 Make any changes to your info and press the submit button:
                 <form action="changeInfoServlet" method="post">

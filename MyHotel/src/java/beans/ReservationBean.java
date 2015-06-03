@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package beans;
 
 import entities.Reservations;
@@ -32,9 +27,7 @@ public class ReservationBean {
         em.persist(reservation);
     }
     
-    public boolean isAvailable(java.sql.Date from, java.sql.Date to, Integer roomNumber){
-        //java.util.Date fromDate = new java.util.Date(from.getTime());
-        //java.util.Date toDate = new java.util.Date(to.getTime());
+    public boolean isAvailable(java.sql.Date from, java.sql.Date to, Integer roomNumber){        
         Query query = em.createNamedQuery("Reservations.checkAvailability");
         query.setParameter("roomNumber", roomNumber);
         query.setParameter("from", from);

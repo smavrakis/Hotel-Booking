@@ -20,6 +20,10 @@
         <servlet-name>makeReservationServlet</servlet-name>
         <servlet-class>servlets.makeReservationServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>getReservationServlet</servlet-name>
+        <servlet-class>servlets.getReservationServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>registerServlet</servlet-name>
         <url-pattern>/registerServlet</url-pattern>
@@ -40,6 +44,10 @@
         <servlet-name>makeReservationServlet</servlet-name>
         <url-pattern>/makeReservationServlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>getReservationServlet</servlet-name>
+        <url-pattern>/getReservationServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
@@ -57,6 +65,7 @@
             <url-pattern>/logoutServlet</url-pattern>
             <url-pattern>/makeReservationServlet</url-pattern>
             <url-pattern>/registerServlet</url-pattern>
+            <url-pattern>/getReservationServlet</url-pattern>
             <http-method>GET</http-method>
             <http-method>POST</http-method>
         </web-resource-collection>

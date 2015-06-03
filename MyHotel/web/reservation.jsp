@@ -28,6 +28,9 @@
                 <form action="getUserInfoServlet">
                     <input type="submit" value="Manage Account">
                 </form>
+                <form action="getReservationServlet">
+                    <input type="submit" value="Show my reservation">
+                </form>
                 <form action="logoutServlet">
                     <input type="submit" value="Log Out">
                 </form>

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package entities;
 
 import java.io.Serializable;
@@ -30,6 +25,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Reservations.findByReservationID", query = "SELECT r FROM Reservations r WHERE r.reservationID = :reservationID"),
     @NamedQuery(name = "Reservations.findByRoomNumber", query = "SELECT r FROM Reservations r WHERE r.roomNumber = :roomNumber"),
     @NamedQuery(name = "Reservations.findByFrom", query = "SELECT r FROM Reservations r WHERE r.from = :from"),
+    @NamedQuery(name = "Reservations.findByUsername", query = "SELECT r FROM Reservations r WHERE r.username = :username"),
     @NamedQuery(name = "Reservations.checkAvailability", query = "SELECT r FROM Reservations r WHERE r.roomNumber = :roomNumber"
             + " AND ((r.from >= :from AND r.from <= :to) OR (r.to >= :from AND r.to <= :to))"),
     @NamedQuery(name = "Reservations.findByTo", query = "SELECT r FROM Reservations r WHERE r.to = :to")})
@@ -96,30 +92,4 @@ public class Reservations implements Serializable {
     public void setUsername(String username) {
         this.username = username;
     }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (reservationID != null ? reservationID.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Reservations)) {
-            return false;
-        }
-        Reservations other = (Reservations) object;
-        if ((this.reservationID == null && other.reservationID != null) || (this.reservationID != null && !this.reservationID.equals(other.reservationID))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "entities.Reservations[ reservationID=" + reservationID + " ]";
-    }
-    
 }
