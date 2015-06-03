@@ -13,25 +13,14 @@
         <title>Home</title>
     </head>
     <body>
-        <%
-            String flag = (String)request.getAttribute("flag");
-            String username = (String)session.getAttribute("username");
-            pageContext.setAttribute("flag",flag);
+        <%            
+            String username = request.getRemoteUser();            
             pageContext.setAttribute("username",username);
         %>
         
         <c:choose>
-            <c:when test="${flag != 'true'}">
-                <%
-                    request.setAttribute("url", "/index.jsp" );
-                %>
-                <jsp:forward page="/checkIfLoggedIn" />
-            </c:when>
-        </c:choose>
-        
-        <c:choose>
             <c:when test="${username != null}">
-                Logged in as:  <%= session.getAttribute("username") %>
+                Logged in as:  <%= username %>
                 <form action="getUserInfoServlet">
                     <input type="submit" value="Manage Account">
                 </form>

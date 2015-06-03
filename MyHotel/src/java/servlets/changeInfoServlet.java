@@ -12,7 +12,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -33,10 +32,8 @@ public class changeInfoServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        String username = (String)session.getAttribute("username");
-        
+            throws ServletException, IOException {        
+        String username = request.getRemoteUser();        
         String firstName = (String)request.getParameter("firstName");
         String lastName = (String)request.getParameter("lastName");
         String email = (String)request.getParameter("emailAddress");

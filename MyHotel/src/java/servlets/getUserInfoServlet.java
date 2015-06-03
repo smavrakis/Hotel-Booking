@@ -35,7 +35,7 @@ public class getUserInfoServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
          HttpSession session = request.getSession();
-         String username = (String)session.getAttribute("username");
+         String username = request.getRemoteUser();
          
          String firstName = user.getFirstName(username);
          String lastName = user.getLastName(username);

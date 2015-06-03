@@ -5,16 +5,8 @@
         <servlet-class>servlets.registerServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>loginServlet</servlet-name>
-        <servlet-class>servlets.loginServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>logoutServlet</servlet-name>
         <servlet-class>servlets.logoutServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>checkIfLoggedIn</servlet-name>
-        <servlet-class>servlets.checkIfLoggedIn</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>getUserInfoServlet</servlet-name>
@@ -29,16 +21,8 @@
         <url-pattern>/registerServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>loginServlet</servlet-name>
-        <url-pattern>/loginServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>logoutServlet</servlet-name>
         <url-pattern>/logoutServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>checkIfLoggedIn</servlet-name>
-        <url-pattern>/checkIfLoggedIn</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>getUserInfoServlet</servlet-name>

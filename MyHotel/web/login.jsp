@@ -23,5 +23,8 @@
         <form action="signup.jsp">
             Don't have an account yet? <input type="submit" value="Sign up"> 
         </form>
+        <form action="index.jsp">
+            <input type="submit" value="Home">
+        </form>
     </body>
 </html>
