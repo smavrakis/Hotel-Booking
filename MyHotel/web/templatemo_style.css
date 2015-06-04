@@ -108,7 +108,7 @@ img {
 .rc_btn_02 a{
 	float: left;
 	clear: both;
-	display: block;
+	display: inline;
 	width: 100px;
 	padding: 4px 0 5px 0;
 	text-align: center;
@@ -170,7 +170,7 @@ img {
 	/* background: url(images/templatemo_menu_bg.png) no-repeat; */
 }
 
-#templatemo_menu ul {
+#templatemo_menu ul {        
 	width: 580px;
 	margin: 15px 0 0 180px;
 	padding: 0px;
@@ -220,7 +220,7 @@ img {
 }
 
 #templatemo_content #content_left{
-	float: left;
+	//float: left;
 	width: 345px;
 	margin: 0px;
 	padding:  30px 0 0 0;

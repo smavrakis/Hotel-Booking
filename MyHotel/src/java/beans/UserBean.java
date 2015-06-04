@@ -70,4 +70,15 @@ public class UserBean {
         user.setEmailAddress(email);        
         em.merge(user);
     }
+    
+    public boolean usernameExists(String username){
+        Query query = em.createNamedQuery("Users.findByUsername");
+        query.setParameter("username", username);
+        List results = query.getResultList();
+        
+        if (results.isEmpty()){
+            return false;
+        }
+        return true;
+    }
 }

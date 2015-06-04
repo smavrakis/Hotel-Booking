@@ -60,11 +60,11 @@
             <url-pattern>/reservation.jsp</url-pattern>
             <url-pattern>/reservationSuccessful.jsp</url-pattern>
             <url-pattern>/manageAccount.jsp</url-pattern>
+            <url-pattern>/updateSuccessful.jsp</url-pattern>
             <url-pattern>/changeInfoServlet</url-pattern>
             <url-pattern>/getUserInfoServlet</url-pattern>
             <url-pattern>/logoutServlet</url-pattern>
-            <url-pattern>/makeReservationServlet</url-pattern>
-            <url-pattern>/registerServlet</url-pattern>
+            <url-pattern>/makeReservationServlet</url-pattern>            
             <url-pattern>/getReservationServlet</url-pattern>
             <http-method>GET</http-method>
             <http-method>POST</http-method>

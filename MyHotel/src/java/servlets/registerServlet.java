@@ -40,6 +40,17 @@ public class registerServlet extends HttpServlet {
             session.removeAttribute("registerError");
         }
         
+        if (user.usernameExists(username)){
+            session.setAttribute("usernameExistsError", "true");            
+            String url = "signup.jsp";
+            response.sendRedirect(url);
+            return;
+        }
+        
+        if (session.getAttribute("usernameExistsError") != null){
+            session.removeAttribute("usernameExistsError");
+        }
+        
         user.register(firstName, lastName, emailAddress, username, password);
         
         String url = "register.jsp";

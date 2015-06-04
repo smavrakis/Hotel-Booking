@@ -47,13 +47,13 @@
             </div>
             
             <div id="content_left">
-                <div class="content_left_section">
+                <div class="content_right_section">
                     <c:choose>
                         <c:when test="${username != null}">
                             <div id="logtxt">Logged in as:  <%= username %></div>                                                        
                         </c:when>
                     </c:choose>
-                    <br>
+                    <div class="cleaner_h30">&nbsp;</div>
                     <div class="rc_btn_01" id="mainbtn"><a href="reservation.jsp">Book a room!</a></div>                    
                 </div>                
                 <div class="cleaner_h30">&nbsp;</div>
@@ -72,24 +72,16 @@
                 <div class="content_right_section">
                     <div class="content_title_01">Gallery</div>
                     <div class="gallery_box">
-                        <img src="images/templatemo_image_02.jpg" alt="image" />
-                        <a href="#">one</a>
+                        <img src="images/templatemo_image_02.jpg" alt="image" />                        
                     </div>
                     <div class="gallery_box">
-                        <img src="images/templatemo_image_03.jpg" alt="image" />
-                        <a href="#">two</a>
+                        <img src="images/templatemo_image_03.jpg" alt="image" />                        
                     </div>
                     <div class="gallery_box">
-                        <img src="images/templatemo_image_04.jpg" alt="image" />
-                        <a href="#">three</a>
-                    </div>
+                        <img src="images/templatemo_image_04.jpg" alt="image" />                        
+                    </div>                    
                     <div class="gallery_box">
-                        <img src="images/templatemo_image_05.jpg" alt="image" />
-                        <a href="#">four</a>
-                    </div>
-                    <div class="gallery_box">
-                        <img src="images/templatemo_image_06.jpg" alt="image" />
-                        <a href="#">five</a>
+                        <img src="images/templatemo_image_06.jpg" alt="image" />                        
                     </div>
                     
                     <div class="cleaner_h20">&nbsp;</div>                                        
