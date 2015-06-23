@@ -65,9 +65,7 @@
             <url-pattern>/getUserInfoServlet</url-pattern>
             <url-pattern>/logoutServlet</url-pattern>
             <url-pattern>/makeReservationServlet</url-pattern>            
-            <url-pattern>/getReservationServlet</url-pattern>
-            <http-method>GET</http-method>
-            <http-method>POST</http-method>
+            <url-pattern>/getReservationServlet</url-pattern>           
         </web-resource-collection>
         <auth-constraint>
             <description/>

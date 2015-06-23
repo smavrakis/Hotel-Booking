@@ -29,7 +29,7 @@ public class ReservationsFacadeREST extends AbstractFacade<Reservations> {
         super(Reservations.class);
     }
 
-    @POST
+    /*@POST
     @Override
     @Consumes({"application/xml", "application/json"})
     public void create(Reservations entity) {
@@ -47,7 +47,7 @@ public class ReservationsFacadeREST extends AbstractFacade<Reservations> {
     @Path("{id}")
     public void remove(@PathParam("id") Integer id) {
         super.remove(super.find(id));
-    }
+    }*/
 
     /*@GET
     @Path("{id}")
